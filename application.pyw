@@ -16,6 +16,7 @@ class Application(tk.Tk):
         self.LCU = lcu.LeagueClientUpdate()
         self.LCU.load_lockfile()
 
+        print('http://localhost:' + self.LCU.get_port())
         self.LCU.GET('/lol-summoner/v1/current-summoner', 'actual_summoner_data')
 
         self.__CONST_SUMMONER_NAME = json.loads(open('actual_summoner_data.json', 'r').read())['displayName']
